@@ -7,8 +7,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class BasicController {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/main", method = RequestMethod.GET)
     public String main(){
         return "main.html";
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String main2(){
+        return "redirect:/main";
     }
 }
