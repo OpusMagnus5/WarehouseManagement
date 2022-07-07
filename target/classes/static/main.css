@@ -1,5 +1,32 @@
-#logo img{
+#logo {
     display: block;
-    height: 100px;
-    margin: 10px auto;
+    width: 600px;
+    margin: 0px auto;
+}
+
+#logo img {
+    width: 100%;
+}
+
+#menu {
+    text-align: center;
+    border-bottom: 2px solid darkolivegreen;
+    height 40px;
+    margin: 10px 0px;
+    padding: 10px;
+}
+
+#menu a {
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    margin: 5px 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    transition: color, background 0.5s;
+}
+
+#menu a:hover {
+    background: darkolivegreen;
+    color: white;
 }
