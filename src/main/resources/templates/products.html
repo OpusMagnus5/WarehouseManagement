@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Produkty</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+    <div th:replace="fragments.html :: logo"></div>
+    <div th:replace="fragments.html :: menu"></div>
+<div class="products" th:each="product : ${productDatabase}">
+    <div th:text="${product.name}"></div>
+    <div th:text="${product.quantity}"></div>
+    <div th:text="${product.code}"></div>
+</div>
+</body>
+</html>
