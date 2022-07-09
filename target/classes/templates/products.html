@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <title>Produkty</title>
     <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="products.css">
 </head>
 <body>
     <div th:replace="fragments.html :: logo"></div>
     <div th:replace="fragments.html :: menu"></div>
 <div class="products" th:each="product : ${productDatabase}">
-    <div th:text="${product.name}"></div>
-    <div th:text="${product.quantity}"></div>
-    <div th:text="${product.code}"></div>
+    <div class="product-name" th:text="${product.name}"></div>
+    <div class="product-quantity" th:text="'Ilość: ' + ${product.quantity}"></div>
+    <div class="product-code" th:text="'Kod produktu: ' + ${product.code}"></div>
 </div>
 </body>
 </html>

@@ -24,9 +24,16 @@
     padding: 5px 10px;
     border-radius: 10px;
     transition: color, background 0.5s;
+    cursor: pointer;
 }
 
 #menu a:hover {
     background: darkolivegreen;
     color: white;
+}
+
+#welcome {
+    font-size: 32px;
+    text-align: center;
+    margin: 30px 0px;
 }
