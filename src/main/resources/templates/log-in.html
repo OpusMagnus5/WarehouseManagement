@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Logowanie</title>
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/log-in.css">
+</head>
+<body>
+    <div th:replace="fragments.html :: logo"></div>
+    <div th:replace="fragments.html :: menu"></div>
+    <div id="log-in">
+      <form method="post">
+          <input type="text" placeholder="login" id="login" th:field="*{user.login}">
+          <input type="password" placeholder="password" id="password" th:field="*{user.password}">
+          <input type="submit" value="Zaloguj">
+      </form>
+    </div>
+</body>
+</html>
