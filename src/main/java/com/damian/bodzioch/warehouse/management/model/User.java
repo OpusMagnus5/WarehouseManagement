@@ -1,9 +1,10 @@
 package com.damian.bodzioch.warehouse.management.model;
 
 public class User {
-    private int id;
+    private int id = 2;
     private String login;
     private String password;
+    private static int idCounter = 2;
 
     public User(int id, String login, String password) {
         this.id = id;
@@ -12,6 +13,8 @@ public class User {
     }
 
     public User() {
+        this.id = idCounter;
+        idCounter++;
     }
 
     public int getId() {

@@ -3,6 +3,7 @@ package com.damian.bodzioch.warehouse.management.services.iplm;
 import com.damian.bodzioch.warehouse.management.database.IUserDAO;
 import com.damian.bodzioch.warehouse.management.exceptions.LoginOrPasswordDoNotMatch;
 import com.damian.bodzioch.warehouse.management.model.User;
+import com.damian.bodzioch.warehouse.management.services.ILoginService;
 import com.damian.bodzioch.warehouse.management.session.SessionObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,7 @@ import javax.annotation.Resource;
 import java.util.Optional;
 
 @Service
-public class LoginService {
+public class LoginService implements ILoginService {
     @Autowired
     IUserDAO userDatabase;
 

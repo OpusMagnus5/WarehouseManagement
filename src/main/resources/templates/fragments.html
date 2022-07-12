@@ -13,6 +13,8 @@
     <a href="/products">Produkty</a>
     <a href="/main">Kontakt</a>
     <a th:if="${sessionObject.user == null}" href="/login">Login</a>
+    <a th:if="${sessionObject.user != null}" href="/logout">Wyloguj</a>
+    <div th:if="${sessionObject.user != null}" id="userName" th:text="'Zalogowano: ' + ${sessionObject.user.login}"></div>
 </div>
 </body>
 </html>

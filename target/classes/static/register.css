@@ -1,0 +1,8 @@
+#register-form {
+    margin: 20px auto;
+}
+
+#register-form input {
+    display: block;
+    margin: 5px auto;
+}
