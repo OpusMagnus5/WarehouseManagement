@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kontakt</title>
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/contact.css">
+</head>
+<body>
+    <div th:replace="fragments.html :: logo"></div>
+    <div th:replace="fragments.html :: menu"></div>
+    <div id="divContactForm">
+        <form id="contactForm" method="post">
+            <input type="text" placeholder="imię" th:field="*{message.firstName}">
+            <input type="text" placeholder="nazwisko" th:field="*{message.lastName}">
+            <input type="text" placeholder="temat" th:field="*{message.topic}">
+            <textarea form="contactForm" placeholder="Treść wiadomości" th:field="*{message.content}" rows="10" cols="50"></textarea>
+            <input type="submit" value="Wyślij">
+        </form>
+    </div>
+</body>
+</html>

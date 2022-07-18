@@ -1,0 +1,13 @@
+#divContactForm{
+    margin: 20px auto;
+}
+
+#contactForm input{
+    display: block;
+    margin: 5px auto;
+}
+
+#contactForm textarea{
+    display: block;
+    margin: 5px auto;
+}
