@@ -13,6 +13,7 @@
     <div class="product-name" th:text="${product.name}"></div>
     <div class="product-quantity" th:text="'Ilość: ' + ${product.quantity}"></div>
     <div class="product-code" th:text="'Kod produktu: ' + ${product.code}"></div>
+    <a th:href="@{/basket/add/product/{id}(id=${product.id})}" class="add-to-basket">Dodaj do koszyka</a>
 </div>
 </body>
 </html>

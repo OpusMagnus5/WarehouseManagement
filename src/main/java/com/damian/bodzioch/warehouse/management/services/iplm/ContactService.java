@@ -5,9 +5,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
 
 @Service
 public class ContactService {

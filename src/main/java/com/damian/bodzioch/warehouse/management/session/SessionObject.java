@@ -1,13 +1,20 @@
 package com.damian.bodzioch.warehouse.management.session;
 
+import com.damian.bodzioch.warehouse.management.model.OrderInBasket;
 import com.damian.bodzioch.warehouse.management.model.User;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
+
+import java.util.HashSet;
 
 @Component
 @SessionScope
 public class SessionObject {
     private User user;
+
+    private HashSet<OrderInBasket> basket = new HashSet<>();
+
+    private int quantityProductsInBasket = 0;
 
     public User getUser() {
         return user;
@@ -15,5 +22,21 @@ public class SessionObject {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public HashSet<OrderInBasket> getBasket() {
+        return basket;
+    }
+
+    public void setBasket(HashSet<OrderInBasket> basket) {
+        this.basket = basket;
+    }
+
+    public int getQuantityProductsInBasket() {
+        return quantityProductsInBasket;
+    }
+
+    public void setQuantityProductsInBasket(int quantityProductsInBasket) {
+        this.quantityProductsInBasket = quantityProductsInBasket;
     }
 }
