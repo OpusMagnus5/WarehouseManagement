@@ -1,5 +1,6 @@
 package com.damian.bodzioch.warehouse.management.controllers;
 
+import com.damian.bodzioch.warehouse.management.exceptions.LackOfProduct;
 import com.damian.bodzioch.warehouse.management.services.IBasketService;
 import com.damian.bodzioch.warehouse.management.session.SessionObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,12 @@ public class BasketController {
 
     @RequestMapping(value = "/basket/add/product/{id}", method = RequestMethod.GET)
     public String addProductToBasket(@PathVariable int id){
-        this.basketService.addProductToBasket(id);
+        try {
+            this.basketService.addProductToBasket(id);
+        }catch (LackOfProduct e){
+            return "redirect:/products";
+            //TODO co zrobić gdy nie ma produktu??
+        }
         return "redirect:/products";
     }
 }

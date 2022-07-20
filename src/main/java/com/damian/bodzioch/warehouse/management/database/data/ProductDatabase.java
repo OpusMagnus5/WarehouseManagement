@@ -5,6 +5,7 @@ import com.damian.bodzioch.warehouse.management.model.Product;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Component
 public class ProductDatabase implements IProductDAO {
@@ -21,5 +22,14 @@ public class ProductDatabase implements IProductDAO {
 
     public ArrayList<Product> getProductsDatabase() {
         return productDatabase;
+    }
+
+    public Optional<Product> getProductFromID(int id){
+        for (Product product : this.productDatabase){
+            if (product.getId() == id){
+                return Optional.of(product);
+            }
+        }
+        return Optional.empty();
     }
 }

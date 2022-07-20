@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
 import java.util.HashSet;
+import java.util.Optional;
 
 @Component
 @SessionScope
@@ -38,5 +39,14 @@ public class SessionObject {
 
     public void setQuantityProductsInBasket(int quantityProductsInBasket) {
         this.quantityProductsInBasket = quantityProductsInBasket;
+    }
+
+    public Optional getOrderByProductID(int id){
+        for (OrderInBasket orderInBasket : this.basket){
+            if (orderInBasket.getProduct().getId() == id){
+                return Optional.of(orderInBasket);
+            }
+        }
+        return Optional.empty();
     }
 }

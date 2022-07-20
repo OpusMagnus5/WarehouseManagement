@@ -1,6 +1,7 @@
 package com.damian.bodzioch.warehouse.management.services.iplm;
 
 import com.damian.bodzioch.warehouse.management.database.IProductDAO;
+import com.damian.bodzioch.warehouse.management.exceptions.LackOfProduct;
 import com.damian.bodzioch.warehouse.management.model.OrderInBasket;
 import com.damian.bodzioch.warehouse.management.model.Product;
 import com.damian.bodzioch.warehouse.management.services.IBasketService;
@@ -20,10 +21,16 @@ public class BasketService implements IBasketService {
     IProductDAO productDAO;
 
     public void addProductToBasket(int id){
+
+        if (productDAO.getProductFromID(id).isEmpty() || productDAO.getProductFromID(id).get().getQuantity() <= 0 ||
+                this.sessionObject.getOrderByProductID(id).isPresent( >= productDAO.getProductFromID(id).get().getQuantity()){
+            throw new LackOfProduct();
+        }//TODO poprawic warunki
+
         for (OrderInBasket element : this.sessionObject.getBasket()){
             if (element.getProduct().getId() == id){
-                element.setQuantity(element.getQuantity() + 1);
                 this.sessionObject.setQuantityProductsInBasket(this.sessionObject.getQuantityProductsInBasket() + 1);
+                element.setQuantity(element.getQuantity() + 1);
                 return;
             }
         }
@@ -34,6 +41,5 @@ public class BasketService implements IBasketService {
                 this.sessionObject.setQuantityProductsInBasket(this.sessionObject.getQuantityProductsInBasket() + 1);
             }
         }
-        //TODO dorobić sprawdzenie dostępnej ilości produktów przed wsadzeniem do koszyka
     }
 }

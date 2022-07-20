@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Koszyk</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+    <div th:replace="fragments.html :: logo"></div>
+    <div th:replace="fragments.html :: menu"></div>
+    <div class="products" th:each="orderInBasket : ${sessionObject.basket}">
+         <div class="product-name" th:text="${orderInBsket.product.name}"></div>
+         <div class="product-quantity" th:text="${orderInBasket.quantity}"></div>
+    </div>
+</body>
+</html>
