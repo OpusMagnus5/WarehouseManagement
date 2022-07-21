@@ -41,7 +41,7 @@ public class SessionObject {
         this.quantityProductsInBasket = quantityProductsInBasket;
     }
 
-    public Optional getOrderByProductID(int id){
+    public Optional<OrderInBasket> getOrderByProductID(int id){
         for (OrderInBasket orderInBasket : this.basket){
             if (orderInBasket.getProduct().getId() == id){
                 return Optional.of(orderInBasket);

@@ -24,7 +24,7 @@ public class ProductDatabase implements IProductDAO {
         return productDatabase;
     }
 
-    public Optional<Product> getProductFromID(int id){
+    public Optional<Product> getProductByID(int id){
         for (Product product : this.productDatabase){
             if (product.getId() == id){
                 return Optional.of(product);

@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <title>Koszyk</title>
     <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/basket.css">
 </head>
 <body>
     <div th:replace="fragments.html :: logo"></div>
     <div th:replace="fragments.html :: menu"></div>
     <div class="products" th:each="orderInBasket : ${sessionObject.basket}">
-         <div class="product-name" th:text="${orderInBsket.product.name}"></div>
-         <div class="product-quantity" th:text="${orderInBasket.quantity}"></div>
+         <div class="product-name" th:text="${orderInBasket.product.name}"></div>
+         <div class="product-quantity" th:text="'Ilość: ' + ${orderInBasket.quantity}"></div>
+         <a class="remove-product-from-basket" th:href="@{basket/remove/product/{id}(id=${orderInBasket.product.id})}">Usuń</a>
     </div>
+    <a id="info-empty-basket" th:if="${sessionObject.basket.size() == 0}">Koszyk jest pusty!</a>
 </body>
 </html>

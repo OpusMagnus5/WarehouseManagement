@@ -37,4 +37,10 @@ public class BasketController {
         }
         return "redirect:/products";
     }
+
+    @RequestMapping(value = "basket/remove/product/{id}", method = RequestMethod.GET)
+    public String removeProductFromBasket(@PathVariable int id){
+        this.basketService.removeProductFromBasket(id);
+        return "redirect:/basket";
+    }
 }

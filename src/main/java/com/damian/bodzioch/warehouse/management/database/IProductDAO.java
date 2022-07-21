@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface IProductDAO {
     ArrayList<Product> getProductsDatabase();
-    Optional<Product> getProductFromID(int id);
+    Optional<Product> getProductByID(int id);
 }
