@@ -1,6 +1,7 @@
 package com.damian.bodzioch.warehouse.management.controllers;
 
 import com.damian.bodzioch.warehouse.management.session.SessionObject;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

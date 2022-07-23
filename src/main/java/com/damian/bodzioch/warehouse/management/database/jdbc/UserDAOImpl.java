@@ -2,6 +2,7 @@ package com.damian.bodzioch.warehouse.management.database.jdbc;
 
 import com.damian.bodzioch.warehouse.management.database.IUserDAO;
 import com.damian.bodzioch.warehouse.management.model.User;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -39,7 +40,7 @@ public class UserDAOImpl implements IUserDAO {
             String sql = "INSERT INTO users (login, password) VALUES (?, ?);";
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, user.getLogin());
-            ps.setString(2, user.getPassword());
+            ps.setString(2, DigestUtils.md5Hex(user.getPassword()));
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             rs.next();

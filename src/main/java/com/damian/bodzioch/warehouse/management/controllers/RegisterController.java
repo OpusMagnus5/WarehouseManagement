@@ -42,3 +42,4 @@ public class RegisterController {
         return "redirect:/main";
     }
 }
+//TODO dorobić javascript do walidacji

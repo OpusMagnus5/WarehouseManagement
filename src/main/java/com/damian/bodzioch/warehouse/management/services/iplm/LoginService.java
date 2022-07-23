@@ -5,6 +5,7 @@ import com.damian.bodzioch.warehouse.management.exceptions.LoginOrPasswordDoNotM
 import com.damian.bodzioch.warehouse.management.model.User;
 import com.damian.bodzioch.warehouse.management.services.ILoginService;
 import com.damian.bodzioch.warehouse.management.session.SessionObject;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +23,7 @@ public class LoginService implements ILoginService {
 
     public void logIn(User user){
             for (User element : this.userDatabase.getUserDatabase()){
-                if (element.getLogin().equals(user.getLogin()) && element.getPassword().equals(user.getPassword())){
+                if (element.getLogin().equals(user.getLogin()) && element.getPassword().equals(DigestUtils.md5Hex(user.getPassword()))){
                     this.sessionObject.setUser(element);
                     break;
                 }
