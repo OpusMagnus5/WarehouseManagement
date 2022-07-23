@@ -6,4 +6,5 @@ import java.util.ArrayList;
 
 public interface IUserDAO {
     ArrayList<User> getUserDatabase();
+    void addUser(User user);
 }

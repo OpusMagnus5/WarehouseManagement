@@ -25,6 +25,6 @@ public class RegisterService implements IRegisterService {
     }
 
     public void addNewUser(User user){
-        userDAO.getUserDatabase().add(user);
+        userDAO.addUser(user);
     }
 }
