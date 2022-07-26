@@ -14,8 +14,9 @@ public class ContactService {
         prop.put("mail.smtp.auth", "true");
         prop.put("mail.smtp.starttls.enable", "true");
         prop.put("mail.smtp.host", "poczta.interia.pl");
-        prop.put("mail.smtp.port", "465");
+        prop.put("mail.smtp.port", "587");
         prop.put("mail.smtp.ssl.trust", "poczta.interia.pl");
+        prop.put("mail.debug", "true");
 
         Session session = Session.getInstance(prop, new Authenticator() {
             @Override
@@ -28,7 +29,7 @@ public class ContactService {
         try {
             message.setFrom(new InternetAddress("grzegorz.bacur@interia.pl"));
             message.setRecipients(
-                    Message.RecipientType.TO, InternetAddress.parse(firstName + lastName + "@gmail.com"));
+                    Message.RecipientType.TO, InternetAddress.parse("grzegorz.bacur@interia.pl"));
             message.setSubject(topic);
             message.setText(content);
 
